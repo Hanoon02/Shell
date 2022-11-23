@@ -1,0 +1,118 @@
+OS Assignment 1 Documentation
+
+Student - Ahmed Hanoon
+Roll No - 2021006
+
+//////////////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\///////////////////////////////////////////
+
+I have created a shell in the file shell.c
+All the external commands are created with the prefix '_' as to avoid system call conflicts.
+Without '_', system checks for the inbuild external commands and executes them.
+All the internal commands are created as functions within the shell.c file
+All the commands and their command line options are listed below, please follow them as the program only handles them
+
+To run the Assignment [cd to directory]:-
+1) Type 'make' to compile the files
+2) Type 'make run' to run the shell
+3) Type the necessary command to run
+
+Makefile created contains the following commands:
+1) make - to compile all .c files
+2) clean - to remove all the compiled files
+3) run - to run the shell
+
+For testcases, kindly run any of the following commands, with/without flags. To create threads, add '&t' at the end
+
+
+//////////////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\///////////////////////////////////////////
+
+Internal Commands:-
+
+1) cd :- It is used to change directory.
+Command line options Handled:-
+-- a) .. :- Move to parent directory
+-- b) ~ :- Move to home directory
+-- c) -L :- Follow Symbolic Link
+-- d) -O :- Move to shell directory
+
+Flags Handled:-
+-- a) Directory not exist
+-- b) Incorrect cd command
+
+2) echo
+Command line options Handled:-
+-- a) -n :- To print the string without the newline character.
+-- b) * :- To print all the files in the current directory.
+        But '*' being a special character in the shell, I have used 'all' instead of '*'.
+-- c) --help :- Prints the man page
+
+Flags Handled:-
+-- a) String not within quotes
+-- b) Unsupported Command
+
+3) pwd
+Command line options Handled:-
+-- a) -L :- Prints symbolic path
+-- b) -P :- Prints physical path
+
+FLags Handled:-
+-- a) Unsupported Command
+-- b) Failure to find path to directory
+
+//////////////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\///////////////////////////////////////////
+External Commands:-
+
+1) ls
+Command line options Handled:-
+-- a) -l : Print all details of the files.
+-- b) -a : Print all hidden files too, starting with '.'
+
+Flags Handled :-
+-- a) Unable to check the directory
+-- b) Incorrect ls command
+
+2) cat
+Command line options Handled:-
+-- a) -n :- It is used to number all output lines.
+-- b) > :- Create a newfile of that name
+        But '>' being a special character in the shell, I have used 'w' instead of '>'.
+-- c) -e :- Add a $ at the end of each line
+
+Flags Handled:-
+-- a) If file can be opened or not
+-- b) Incorrect cat command
+
+3) date
+Command line options Handled:-
+-- a) -u :- It is used to display the date in UTC format.
+-- b) -r :- It is used to display last modified date of a file.
+
+Flags Handled:-
+-- a) Checking if file exists
+-- b) Incorrect date command
+
+4) rm
+Command line options Handled:-
+-- a) * :- remove all files and directories
+        But '*' being a special character in the shell, I have used 'all' instead of '*'
+-- b) -f :- force remove files and directories
+-- c) -r :- prompt before removing
+        The only valid YES command is "yes", any other will lead to non deletion
+
+Flags Handled:-
+-- a) Checking if file exists
+-- b) Incorrect command
+
+5) mkdir
+Command line options Handled:-
+-- a) -v :- verbose mkdir
+-- b) -p :- create parent directories as needed
+
+Flags Handled:-
+-- a) Checking if user entered a directory
+-- b) Checking if directory is created
+
+
